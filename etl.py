@@ -13,98 +13,98 @@ ratings_file = base_dir / "data" / "ratings.csv"
 movies_df=pd.read_csv(movies_file)
 ratings_df=pd.read_csv(ratings_file)
 
-#Display Movies Information
-print("\n========================Movies Data========================")
+# #Display Movies Information
+# print("\n========================Movies Data========================")
 
-print(movies_df.head())
+# print(movies_df.head())
 
-print("\nMovies Shape:")
-print(movies_df.shape)
+# print("\nMovies Shape:")
+# print(movies_df.shape)
 
-print("\nMovies Columns:")
-print(movies_df.columns)
+# print("\nMovies Columns:")
+# print(movies_df.columns)
 
-#Display Rating Information
-print("\n===========Ratings Data==============")
+# #Display Rating Information
+# print("\n===========Ratings Data==============")
 
-print(ratings_df.head())
+# print(ratings_df.head())
 
-print("\nRatings Shape:")
-print(ratings_df.shape)
+# print("\nRatings Shape:")
+# print(ratings_df.shape)
 
-print("\nRatings Columns:");
-print(ratings_df.columns)
+# print("\nRatings Columns:");
+# print(ratings_df.columns)
 
 
-#Data Quality Analysis
+# #Data Quality Analysis
 
-print("\n================Data Quality Analysis========================")
+# print("\n================Data Quality Analysis========================")
 
-#1. CHecking Missing Values in Movies data
-print("\nMissing values in Movies data:")
-print(movies_df.isnull().sum())
+# #1. CHecking Missing Values in Movies data
+# print("\nMissing values in Movies data:")
+# print(movies_df.isnull().sum())
 
-#2. Checking Missing Values in Ratings data
-print("\nMissing values in Ratings data:")
-print(ratings_df.isnull().sum())
+# #2. Checking Missing Values in Ratings data
+# print("\nMissing values in Ratings data:")
+# print(ratings_df.isnull().sum())
 
-#3. Check duplicate in Movies data
-print("\nDuplicate Movies:")
-print(movies_df.duplicated().sum())
+# #3. Check duplicate in Movies data
+# print("\nDuplicate Movies:")
+# print(movies_df.duplicated().sum())
 
-#4. Check duplicate in Ratings data
-print("\nDuplicate Ratings:")
-print(ratings_df.duplicated().sum())
+# #4. Check duplicate in Ratings data
+# print("\nDuplicate Ratings:")
+# print(ratings_df.duplicated().sum())
 
-#5. Check Movie ID Uniqueness
-print("\nUnique Movie IDs:")
-print(movies_df["movieId"].nunique())
+# #5. Check Movie ID Uniqueness
+# print("\nUnique Movie IDs:")
+# print(movies_df["movieId"].nunique())
 
-#6. Check Rating Distribution
-print("\nRating Distribution:")
-print(ratings_df["rating"].value_counts().sort_index())
+# #6. Check Rating Distribution
+# print("\nRating Distribution:")
+# print(ratings_df["rating"].value_counts().sort_index())
 
-#7. Checking rating range
-print("\nMinimum Rating:")
-print(ratings_df["rating"].min())
+# #7. Checking rating range
+# print("\nMinimum Rating:")
+# print(ratings_df["rating"].min())
 
-print("\nMaximum Rating:")
-print(ratings_df["rating"].max())
+# print("\nMaximum Rating:")
+# print(ratings_df["rating"].max())
 
-#8. Check data types
-print("\n Movies data type:")
-print(movies_df.dtypes)
+# #8. Check data types
+# print("\n Movies data type:")
+# print(movies_df.dtypes)
 
-print('\nRatings data type:')
-print(ratings_df.dtypes)
+# print('\nRatings data type:')
+# print(ratings_df.dtypes)
 
-print("\n================Data Quality Analysis Completed========================")
+# print("\n================Data Quality Analysis Completed========================")
 
-print("\n===========Relationship Validation==============")
+# print("\n===========Relationship Validation==============")
 
-#Get movieId's from Movies Dataset
-movie_ids=set(movies_df["movieId"])
+# #Get movieId's from Movies Dataset
+# movie_ids=set(movies_df["movieId"])
 
-#Get movieId's from rating dataset
-rating_movie_ids=set(ratings_df["movieId"])
+# #Get movieId's from rating dataset
+# rating_movie_ids=set(ratings_df["movieId"])
 
-#Find missing movieId's in ratings dataset but missing in Movies dataset
+# #Find missing movieId's in ratings dataset but missing in Movies dataset
 
-missing_movie_ids=rating_movie_ids-movie_ids
-print("\nMovies referenced in ratings but missing from movies dataset:")
-print(len(missing_movie_ids))
+# missing_movie_ids=rating_movie_ids-movie_ids
+# print("\nMovies referenced in ratings but missing from movies dataset:")
+# print(len(missing_movie_ids))
 
-print("\nMissing Movie IDs:")
-print(missing_movie_ids)
+# print("\nMissing Movie IDs:")
+# print(missing_movie_ids)
 
-#Find movies which don't have ratings
-movies_without_ratings=movie_ids-rating_movie_ids
-print("\nMovies without ratings:")
+# #Find movies which don't have ratings
+# movies_without_ratings=movie_ids-rating_movie_ids
+# print("\nMovies without ratings:")
 
-print(len(movies_without_ratings))
-# print(movies_without_ratings)
+# print(len(movies_without_ratings))
+# # print(movies_without_ratings)
 
-print("\n========== RELATIONSHIP VALIDATION COMPLETED ==========")
+# print("\n========== RELATIONSHIP VALIDATION COMPLETED ==========")
 
 
 
@@ -384,54 +384,54 @@ if not API_KEY:
 
     print("OMDb API key not found!")
 
-else:
+# else:
 
-    # OMDb API URL
-    url = "https://www.omdbapi.com/"
+#     # OMDb API URL
+#     url = "https://www.omdbapi.com/"
 
-    # Movie parameters
-    params = {
-        "t": "Toy Story",
-        "y": 1995,
-        "apikey": API_KEY
-    }
+#     # Movie parameters
+#     params = {
+#         "t": "Toy Story",
+#         "y": 1995,
+#         "apikey": API_KEY
+#     }
 
-    # Send request
-    response = requests.get(
-        url,
-        params=params,
-        timeout=30
-    )
+#     # Send request
+#     response = requests.get(
+#         url,
+#         params=params,
+#         timeout=30
+#     )
 
-    # Convert response to JSON
-    movie_data = response.json()
+#     # Convert response to JSON
+#     movie_data = response.json()
 
-    # Check response
-    if movie_data.get("Response") == "True":
+#     # Check response
+#     if movie_data.get("Response") == "True":
 
-        print("\nMovie Found!")
+#         print("\nMovie Found!")
 
-        print("Title:", movie_data.get("Title"))
+#         print("Title:", movie_data.get("Title"))
 
-        print("Year:", movie_data.get("Year"))
+#         print("Year:", movie_data.get("Year"))
 
-        print("Director:", movie_data.get("Director"))
+#         print("Director:", movie_data.get("Director"))
 
-        print("IMDb Rating:", movie_data.get("imdbRating"))
+#         print("IMDb Rating:", movie_data.get("imdbRating"))
 
-        print("Runtime:", movie_data.get("Runtime"))
+#         print("Runtime:", movie_data.get("Runtime"))
 
-        print("Plot:", movie_data.get("Plot"))
+#         print("Plot:", movie_data.get("Plot"))
 
-        print("IMDb ID:", movie_data.get("imdbID"))
+#         print("IMDb ID:", movie_data.get("imdbID"))
 
-    else:
+#     else:
 
-        print("Movie not found!")
+#         print("Movie not found!")
 
-        print("Error:", movie_data.get("Error"))
+#         print("Error:", movie_data.get("Error"))
 
-print("\n========== OMDb API TEST COMPLETED ==========")
+# print("\n========== OMDb API TEST COMPLETED ==========")
 
 
 # OMDb CACHE
@@ -525,13 +525,6 @@ def record_api_request():
 
     return True
 
-# print("\n========== API TRACKER DEBUG ==========")
-
-# print("Tracker file location:", usage_file.resolve())
-
-# print("Tracker file exists:", usage_file.exists())
-
-# print("Loaded API requests:", load_api_usage())
 
 if usage_file.exists():
 
@@ -664,39 +657,6 @@ def get_movie_details(title, year):
 
         return None
     
-
-# Test enrichment function
-
-movie_data = get_movie_details(
-    "Toy Story",
-    1995
-)
-
-if movie_data:
-
-    print("\nMovie Details Retrieved:")
-
-    print("Director:", movie_data.get("Director"))
-
-    print("IMDb Rating:", movie_data.get("imdbRating"))
-
-    print("Runtime:", movie_data.get("Runtime"))
-
-    print("Plot:", movie_data.get("Plot"))
-    
-
-
-# print("\n========== MOVIE TITLE EXTRACTION ==========")
-
-# test_title = "Toy Story (1995)"
-
-# print("Original Title:", test_title)
-
-# print("Movie Title:", extract_movie_title(test_title))
-
-# print("Release Year:", extract_year(test_title))
-
-
 
 # MOVIE ENRICHMENT
 
@@ -991,57 +951,59 @@ for row in status_results:
 
     print(row)
     
+# Close database connection
+conn.close()
+
+print("\nDatabase connection closed.")
+
+# # TEST DAILY API TRACKER
+
+# print("\n========== DAILY API TRACKER TEST ==========")
 
 
+# # Read current API usage
 
-# TEST DAILY API TRACKER
+# current_usage = load_api_usage()
 
-print("\n========== DAILY API TRACKER TEST ==========")
-
-
-# Read current API usage
-
-current_usage = load_api_usage()
-
-print("Current API requests:", current_usage)
+# print("Current API requests:", current_usage)
 
 
-# Check the configured limit
+# # Check the configured limit
 
-print("Daily API limit:", MAX_API_REQUESTS)
-
-
-# Check remaining requests
-
-remaining_requests = MAX_API_REQUESTS - current_usage
-
-print("Remaining API requests:", remaining_requests)
+# print("Daily API limit:", MAX_API_REQUESTS)
 
 
-# Verify tracker
+# # Check remaining requests
 
-if current_usage == 0:
+# remaining_requests = MAX_API_REQUESTS - current_usage
 
-    print("No API requests recorded for today.")
+# print("Remaining API requests:", remaining_requests)
 
-else:
 
-    print("API requests already recorded today.")
+# # Verify tracker
+
+# if current_usage == 0:
+
+#     print("No API requests recorded for today.")
+
+# else:
+
+#     print("API requests already recorded today.")
     
 
 
-print("\n========== API TRACKER DEBUG ==========")
+# print("\n========== API TRACKER DEBUG ==========")
 
-print("Tracker location:", usage_file.resolve())
+# print("Tracker location:", usage_file.resolve())
 
-print("Tracker exists:", usage_file.exists())
+# print("Tracker exists:", usage_file.exists())
 
-print("Loaded count:", load_api_usage())
+# print("Loaded count:", load_api_usage())
 
-if usage_file.exists():
+# if usage_file.exists():
 
-    with open(usage_file, "r") as file:
+#     with open(usage_file, "r") as file:
 
-        print("Saved tracker:", json.load(file))
+#         print("Saved tracker:", json.load(file))
 
-print("=====================================")
+# print("=====================================")
