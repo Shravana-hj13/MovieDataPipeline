@@ -210,7 +210,7 @@ Alfred Hitchcock
 ### 1. Clone the Repository
 
 ```bash
-git clone <your-github-repository-url>
+git clone https://github.com/Shravana-hj13/MovieDataPipeline.git
 ```
 
 ### 2. Navigate to the Project
