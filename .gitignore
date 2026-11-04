@@ -1,0 +1,15 @@
+# Python virtual environment
+venv/
+
+# Environment variables
+.env
+
+# SQLite database
+movies.db
+
+# Python cache
+__pycache__/
+*.pyc
+
+# OMDb cache
+cache/
