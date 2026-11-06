@@ -613,7 +613,7 @@ def get_movie_details(title, year):
 
 print("\n========== MOVIE ENRICHMENT ==========")
 
-MAX_REQUESTS_PER_RUN = 10
+MAX_REQUESTS_PER_RUN = 1000
 
 requests_before_run = load_api_usage()
 
