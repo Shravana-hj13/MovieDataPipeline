@@ -613,7 +613,7 @@ def get_movie_details(title, year):
 
 print("\n========== MOVIE ENRICHMENT ==========")
 
-MAX_REQUESTS_PER_RUN = 1000
+MAX_REQUESTS_PER_RUN = 10
 
 requests_before_run = load_api_usage()
 
@@ -763,13 +763,29 @@ for movie in movies_to_enrich:
         imdb_rating = None
 
 
-    # Convert runtime
+    # Convert runtime into minutes
+    import re
 
     if runtime and runtime != "N/A":
 
-        runtime_minutes = int(
-            runtime.replace(" min", "")
-        )
+        runtime = str(runtime).strip()
+
+        if "h" in runtime:
+
+            hours = re.search(r"(\d+)\s*h", runtime)
+            minutes = re.search(r"h\s*(\d+)", runtime)
+
+            runtime_minutes = 0
+
+            if hours:
+                runtime_minutes += int(hours.group(1)) * 60
+
+            if minutes:
+                runtime_minutes += int(minutes.group(1))
+
+        else:
+
+            runtime_minutes = int(runtime.replace(" min", "").strip())
 
     else:
 
