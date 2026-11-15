@@ -130,9 +130,9 @@ Based on the latest enrichment run:
 
 | Status    | Movies |
 | --------- | -----: |
-| SUCCESS   |    613 |
-| NOT_FOUND |    351 |
-| PENDING   |  8,778 |
+| SUCCESS   |  3,028 |
+| NOT_FOUND |  1,674 |
+| PENDING   |  5,040 |
 | Total     |  9,742 |
 
 The enrichment process is partially completed. Movies marked as pending have not yet been processed.
@@ -203,7 +203,7 @@ Film-Noir
 
 Alfred Hitchcock
 
-- Movies: 10
+- Movies: 27
 
 ## How to Run the Project
 
