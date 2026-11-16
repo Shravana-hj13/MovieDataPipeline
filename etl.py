@@ -1,4 +1,8 @@
 import pandas as pd
+import sqlite3
+import re
+import requests
+from dotenv import load_dotenv
 from pathlib import Path
 from datetime import date
 
@@ -109,7 +113,6 @@ ratings_df=pd.read_csv(ratings_file)
 
 
 #--------Creating SQLite Database---------------------
-import sqlite3
 
 #DB file path
 db_file = base_dir/"movies.db"
@@ -151,8 +154,6 @@ for table in tables:
 
 
 #Load Movies data
-
-import re
 
 print("\n========== MOVIES DATA LOADING ==========")
 
@@ -367,8 +368,6 @@ print("\n========== ETL LOADING COMPLETED ==========")
 
 
 #OMDb API Test
-import requests
-from dotenv import load_dotenv
 import os
 
 print("\n========== OMDb API TEST ==========")
@@ -764,7 +763,6 @@ for movie in movies_to_enrich:
 
 
     # Convert runtime into minutes
-    import re
 
     if runtime and runtime != "N/A":
 
